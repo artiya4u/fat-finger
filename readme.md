@@ -17,5 +17,5 @@ More info on [my blog post](https://medium.com/@artiya4u/fatfinger-a-pretty-good
   and put it in the `models` folder.
 - Set Python path `export PYTHONPATH=$PYTHONPATH:./app`
 - Run the api using command `python3 -m uvicorn api:app --host 0.0.0.0 --port 8008`
-- change the `chrome_extension/content.js` constant `BASE_API_URL` with your local api url http://127.0.0.1:8008.
+- Change the `chrome_extension/content.js` `BASE_API_URL` constant with your local api url http://127.0.0.1:8008
   to use the local server.
