@@ -117,7 +117,7 @@ class HMTNetEvaluator(Evaluator):
             except Exception as e:
                 continue
 
-            if score < 2.8:  # skip low score
+            if score < 2.5:  # skip low score
                 return False, score
             if score > 4.6:  # outlined
                 face_count -= 1
