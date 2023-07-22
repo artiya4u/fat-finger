@@ -138,16 +138,27 @@ async def save(profile: Profile):
         "face_score": 0,
     }
 
+    print('=============================================================================')
+    print(f"{user['name']}({user['age']})")
+    print(f"instagram={user['instagram']}")
+    print(f"active={user['active']}")
+    print(f"verified={user['verified']}")
+    print(f"tags:{len(user['tags'])}={user['tags']}")
+    print(f"photos={len(user['photos'])}")
+    print(f"{user['job']} {user['school']} {user['livesIn']}")
+    print(f"{user['bio']}")
+    print('=============================================================================')
+
     if should_skip(profile.bio) or should_skip(profile.name) or should_skip(profile.job):
         print("skipped")
         user["hot"] = False
         user["score"] = 0
     else:
-        print("evaluating investment score")
+        print("evaluating investment score...")
         hot, score = point_based_evaluator.evaluate(user)
         user["score"] = score
         if hot:
-            print("evaluating face score")
+            print("evaluating face score...")
             user["photos"] = []
             os.mkdir(f'./photos/{user["uid"]}')
             for photo_url in profile.photos:
@@ -163,18 +174,9 @@ async def save(profile: Profile):
     with open('./profiles.txt', 'a') as df:
         df.write(json.dumps(user) + '\n')
 
-    print('=============================================================================')
-    print(f"{user['name']}({user['age']})")
     print(f"score={user['score']}")
     print(f"face_score={user['face_score']}")
     print(f"hot={user['hot']}")
-    print(f"instagram={user['instagram']}")
-    print(f"active={user['active']}")
-    print(f"verified={user['verified']}")
-    print(f"tags:{len(user['tags'])}={user['tags']}")
-    print(f"photos={len(user['photos'])}")
-    print(f"{user['job']} {user['school']} {user['livesIn']}")
-    print(f"{user['bio']}")
     print('=============================================================================')
     return Response(code="ok", profile=user)
 
