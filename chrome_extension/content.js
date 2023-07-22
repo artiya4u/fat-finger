@@ -72,12 +72,21 @@ function swipe(action) {
 
     // If popup
     setTimeout(function () {
+        const button_texts = ['NO THANKS', 'NO, THANKS', 'NOT NOW', 'MAYBE LATER',  'NOT INTERESTED'];
         let bntsPopup = document.querySelectorAll('button.button');
         for (const bntPop of bntsPopup) {
             // Close Popup -- No, Thanks
-            if (['NO THANKS', 'NO, THANKS', 'NOT NOW', 'MAYBE LATER',  'NOT INTERESTED'].includes(bntPop.innerText.trim().toUpperCase())) {
+            if (button_texts.includes(bntPop.innerText.trim().toUpperCase())) {
                 console.log('❌ Close Popup');
                 bntPop.click();
+            }
+        }
+        let bntsPopup2 = document.querySelectorAll('button[type="button"]');
+        for (const bntPop2 of bntsPopup2) {
+            // Close Popup -- No, Thanks
+            if (button_texts.includes(bntPop2.innerText.trim().toUpperCase())) {
+                console.log('❌ Close Popup2');
+                bntPop2.click();
             }
         }
     }, 1500);
