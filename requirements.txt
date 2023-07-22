@@ -1,0 +1,17 @@
+uvicorn
+fastapi
+pydantic
+requests
+requests
+numpy
+torch
+pandas
+opencv_python
+scikit_image
+matplotlib
+dlib
+mtcnn
+torchvision
+visdom
+pillow
+scikit_learn
