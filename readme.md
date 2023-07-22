@@ -19,3 +19,4 @@ More info on [my blog post](https://medium.com/@artiya4u/fatfinger-a-pretty-good
 - Run the api using command `python3 -m uvicorn api:app --host 0.0.0.0 --port 8008`
 - Change the `chrome_extension/content.js` `BASE_API_URL` constant with your local api url http://127.0.0.1:8008
   to use the local server.
+- Reload the extension from [Extension Settings](chrome://extensions/) page.
