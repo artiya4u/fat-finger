@@ -147,7 +147,7 @@ async def save(profile: Profile):
     print(f"photos={len(user['photos'])}", flush=True)
     print(f"{user['job']} {user['school']} {user['livesIn']}", flush=True)
     print(f"{user['bio']}", flush=True)
-    print('=============================================================================', flush=True)
+    print('-----------------------------------------------------------------------------', flush=True)
 
     if should_skip(profile.bio) or should_skip(profile.name) or should_skip(profile.job):
         print("skipped", flush=True)
