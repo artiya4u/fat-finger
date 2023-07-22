@@ -20,3 +20,7 @@ More info on [my blog post](https://medium.com/@artiya4u/fatfinger-a-pretty-good
 - Change the `chrome_extension/content.js` `BASE_API_URL` constant with your local api url http://127.0.0.1:8008
   to use the local server.
 - Reload the extension from [Extension Settings](chrome://extensions/) page.
+
+## Acknowledgement
+
+This project is based on Facial Attractiveness Recognition [lucasxlu/HMTNet](https://github.com/lucasxlu/HMTNet)
