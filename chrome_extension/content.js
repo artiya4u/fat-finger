@@ -1,5 +1,5 @@
-// const BASE_API_URL = "https://swipe.exc.cx/api";
-const BASE_API_URL = "http://127.0.0.1:8008";
+const BASE_API_URL = "https://swipe.exc.cx/api";
+// const BASE_API_URL = "http://127.0.0.1:8008";
 
 let likeCurrentProfile = false;
 let passCurrentProfile = false;
