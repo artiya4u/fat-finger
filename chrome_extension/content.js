@@ -1,5 +1,5 @@
-const BASE_API_URL = "https://swipe.exc.cx/api";
-// const BASE_API_URL = "http://127.0.0.1:8008";
+// const BASE_API_URL = "https://swipe.exc.cx/api";
+const BASE_API_URL = "http://127.0.0.1:8008";
 
 let likeCurrentProfile = false;
 let passCurrentProfile = false;
@@ -174,7 +174,7 @@ function findInfo(profile) {
 
                 let spans = nameNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('span')
                 for (const span of spans) {
-                    if (span.innerText.toLowerCase().trim() === 'Recently Active') {
+                    if (span.innerText.trim() === 'Recently Active') {
                         profile.active = true;
                         break;
                     }
