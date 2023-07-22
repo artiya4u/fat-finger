@@ -1,4 +1,6 @@
-models
 .idea
+
 profiles.txt
+swipe.txt
+models/*
 photos/*
