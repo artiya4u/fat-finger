@@ -83,7 +83,7 @@ class PointBasedEvaluator(Evaluator):
             point += 1
 
         # random 0-2
-        point += random.random() * 2
+        # point += random.random() * 2
 
         # adjust by age
         if profile["age"] is not None:

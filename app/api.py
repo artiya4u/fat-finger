@@ -138,16 +138,16 @@ async def save(profile: Profile):
         "face_score": 0,
     }
 
-    print('=============================================================================', flush=True)
-    print(f"{user['name']}({user['age']})", flush=True)
-    print(f"instagram={user['instagram']}", flush=True)
-    print(f"active={user['active']}", flush=True)
-    print(f"verified={user['verified']}", flush=True)
-    print(f"tags:{len(user['tags'])}={user['tags']}", flush=True)
-    print(f"photos={len(user['photos'])}", flush=True)
-    print(f"{user['job']} {user['school']} {user['livesIn']}", flush=True)
-    print(f"{user['bio']}", flush=True)
-    print('-----------------------------------------------------------------------------', flush=True)
+    print('=============================================================================')
+    print(f"{user['name']}({user['age']})")
+    print(f"instagram={user['instagram']}")
+    print(f"active={user['active']}")
+    print(f"verified={user['verified']}")
+    print(f"tags:{len(user['tags'])}={user['tags']}")
+    print(f"photos={len(user['photos'])}")
+    print(f"{user['job']} {user['school']} {user['livesIn']}")
+    print(f"{user['bio']}")
+    print('-----------------------------------------------------------------------------')
 
     if should_skip(profile.bio) or should_skip(profile.name) or should_skip(profile.job):
         print("skipped", flush=True)
@@ -174,9 +174,9 @@ async def save(profile: Profile):
     with open('./profiles.txt', 'a') as df:
         df.write(json.dumps(user) + '\n')
 
-    print(f"score={user['score']}", flush=True)
-    print(f"face_score={user['face_score']}", flush=True)
-    print(f"hot={user['hot']}", flush=True)
+    print(f"score={user['score']}")
+    print(f"face_score={user['face_score']}")
+    print(f"hot={user['hot']}")
     print('=============================================================================', flush=True)
     return Response(code="ok", profile=user)
 
