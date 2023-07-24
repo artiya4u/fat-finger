@@ -135,8 +135,8 @@ class FaceEvaluator(Evaluator):
             scores.append(score)
 
         # not enough faces
-        if face_count <= self.config['min_face_count']:
-            return False, -face_count
+        if face_count < self.config['min_face_count']:
+            return False, - (face_count + 10)
 
         mean_score = statistics.mean(scores)
         return mean_score > self.config['hot_threshold'], mean_score
