@@ -9,12 +9,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from evaluate import PointBasedEvaluator, HMTNetEvaluator
+from evaluate import InvestmentEvaluator, FaceEvaluator
 from parse_ig import parse_bio
 from skip_filter import should_skip
 
-point_based_evaluator = PointBasedEvaluator()
-htmnet_evaluator = HMTNetEvaluator()
+investment_evaluator = InvestmentEvaluator()
+face_evaluator = FaceEvaluator()
 
 app = FastAPI()
 
@@ -155,8 +155,9 @@ async def save(profile: Profile):
         user["score"] = 0
     else:
         print("evaluating investment score...", flush=True)
-        hot, score = point_based_evaluator.evaluate(user)
+        hot, score = investment_evaluator.evaluate(user)
         user["score"] = score
+        print(f"score={user['score']}", flush=True)
         if hot:
             print("evaluating face score...", flush=True)
             user["photos"] = []
@@ -165,7 +166,7 @@ async def save(profile: Profile):
                 image_file = download_image(user["uid"], photo_url)
                 if image_file is not None:
                     user["photos"].append(image_file)
-            hot, face_score = htmnet_evaluator.evaluate(user)
+            hot, face_score = face_evaluator.evaluate(user)
             user["hot"] = hot
             user["face_score"] = face_score
         else:
@@ -174,7 +175,6 @@ async def save(profile: Profile):
     with open('./profiles.txt', 'a') as df:
         df.write(json.dumps(user) + '\n')
 
-    print(f"score={user['score']}")
     print(f"face_score={user['face_score']}")
     print(f"hot={user['hot']}")
     print('=============================================================================', flush=True)

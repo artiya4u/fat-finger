@@ -14,3 +14,4 @@ torchvision
 visdom
 pillow
 scikit_learn
+dynaconf

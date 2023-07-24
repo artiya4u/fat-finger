@@ -21,6 +21,15 @@ More info on [my blog post](https://medium.com/@artiya4u/fatfinger-a-pretty-good
   to use the local server.
 - Reload the extension from [Extension Settings](chrome://extensions/) page.
 
+## Config
+
+- Load config locally in `config/config_settings.json` file.
+- Load config remotely using ENV `CONFIG_SETTINGS_URL` with json file url e.g.
+
+```
+export CONFIG_SETTINGS_URL=https://api.npoint.io/b9a4fbe3b2fdc146c0a8
+```
+
 ## Acknowledgement
 
 This project is based on Facial Attractiveness Recognition [lucasxlu/HMTNet](https://github.com/lucasxlu/HMTNet)

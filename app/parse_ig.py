@@ -51,6 +51,7 @@ def parse_bio(bio: str):
             'instragram ', 'instragram -', 'instragram-', 'instragram:',
             'instragram :', 'instragram.', 'instragram;', 'instragram ;',
             'insta ', 'insta -', 'insta-', 'insta:', 'insta :', 'insta.', 'insta;', 'insta ;', 'insta@',
+            'ไอจี ', 'ไอจี -', 'ไอจี-', 'ไอจี:', 'ไอจี :', 'ไอจี.', 'ไอจี;', 'ไอจี ;', 'ไอจี@',
         ]
         for tag in tags:
             pos = find_ig_in_text(line, tag)
