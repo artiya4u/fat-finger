@@ -30,7 +30,7 @@
         "min_face_count": 2,
         "min_face_score": 2.8,
         "max_face_score": 4.6,
-        "hot_threshold": 3.5
+        "hot_threshold": 3.6
     },
     "skip_list": [
         "dy boy",
