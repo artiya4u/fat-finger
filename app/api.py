@@ -154,23 +154,8 @@ async def save(profile: Profile):
         user["hot"] = False
         user["score"] = 0
     else:
-        print("evaluating investment score...", flush=True)
-        hot, score = investment_evaluator.evaluate(user)
-        user["score"] = score
-        print(f"score={user['score']}", flush=True)
-        if hot:
-            print("evaluating face score...", flush=True)
-            user["photos"] = []
-            os.mkdir(f'./photos/{user["uid"]}')
-            for photo_url in profile.photos:
-                image_file = download_image(user["uid"], photo_url)
-                if image_file is not None:
-                    user["photos"].append(image_file)
-            hot, face_score = face_evaluator.evaluate(user)
-            user["hot"] = hot
-            user["face_score"] = face_score
-        else:
-            user["photos"] = profile.photos
+        user["hot"] = True
+        user["score"] = 0
 
     with open('./profiles.txt', 'a') as df:
         df.write(json.dumps(user) + '\n')

@@ -300,10 +300,7 @@ async function swipeLoop() {
                         continue;
                     }
                     if (likeCurrentProfile || hot && !passCurrentProfile) {
-                        swipe('like');
-                        profile.like = true;
-                        likeCurrentProfile = false;
-                        passCurrentProfile = false;
+                        location.reload();
                     } else {
                         swipe('pass');
                         profile.like = false;
