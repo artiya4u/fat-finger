@@ -154,8 +154,11 @@ async def save(profile: Profile):
         user["hot"] = False
         user["score"] = 0
     else:
-        user["hot"] = True
-        user["score"] = 0
+        print("evaluating investment score...", flush=True)
+        hot, score = investment_evaluator.evaluate(user)
+        user["score"] = score
+        print(f"score={user['score']}", flush=True)
+        user["hot"] = hot
 
     with open('./profiles.txt', 'a') as df:
         df.write(json.dumps(user) + '\n')
