@@ -132,7 +132,7 @@ async function checkProfile(profile) {
         const response = await fetch(BASE_API_URL + '/save', requestOptions)
         const data = await response.json();
         console.log('HOT!', data['profile']['hot'])
-        return [data['profile']['hot'], data];
+        return [data['profile']['hot'], data['profile']];
     } catch (e) {
         return [false, null];
     }
@@ -294,13 +294,13 @@ async function swipeLoop() {
                         return;
                     }
                     let result = await checkProfile(profile);
+                     console.log(result[1]['name'], 'score', result[1]['score']);
                     if (rewinding) {
                         console.log('Rewinding after checkProfile')
                         rewinding = false;
                         continue;
                     }
                     if (likeCurrentProfile || result[0] && !passCurrentProfile) {
-                        console.log('score', result[1]['score']);
                         location.reload();
                     } else {
                         swipe('pass');
